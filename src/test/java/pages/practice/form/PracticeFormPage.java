@@ -49,11 +49,6 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setBirthdayDate(String date) {
-        $("#dateOfBirthInput").setValue(date).pressEnter();
-        return this;
-    }
-
     public PracticeFormPage selectSubject(String... subjects) {
         for (String subject : subjects) {
             $("#subjectsInput").setValue(subject);
@@ -81,13 +76,8 @@ public class PracticeFormPage {
 
     //TODO Попросить добавить id попапа
     public PracticeFormPage selectState(String state) {
-        $("#state").scrollTo().click();
+        $("#state").click();
         $$("[id^=\"react-select-3-option\"]").findBy(text(state)).click();
-        return this;
-    }
-
-    public PracticeFormPage setState(String state) {
-        $("#state").setValue(state).pressEnter();
         return this;
     }
 
@@ -95,11 +85,6 @@ public class PracticeFormPage {
     public PracticeFormPage selectCity(String city) {
         $("#city").click();
         $$("div[id^=\"react-select-4-option\"]").findBy(text(city)).click();
-        return this;
-    }
-
-    public PracticeFormPage setCity(String city) {
-        $("#city").setValue(city).pressEnter();
         return this;
     }
 

@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.practice.form.PracticeFormPage;
@@ -12,13 +14,49 @@ public class PracticeFormTests {
 
     private final PracticeFormPage practiceFormPage = new PracticeFormPage();
 
+    @BeforeAll
+    public static void setUp() {
+        Configuration.browserSize = "1920x1080";
+    }
+
     @BeforeEach
     public void openPage() {
         practiceFormPage.open();
     }
 
     @Test
-    public void fillForm() {
+    public void fillRequiredFormFields() {
+        String firstName = randomAlphabetic(5),
+                lastName = randomAlphabetic(10),
+                gender = "Female",
+
+                mobileNumber = randomNumeric(10),
+
+                birthDay = "24",
+                birthMonth = "September",
+                birthYear = "1995";
+
+        practiceFormPage.setFirstName(firstName)
+                .setLastName(lastName)
+                .selectGender(gender)
+                .setMobileNumber(mobileNumber)
+                .selectBirthdayDate(birthDay, birthMonth, birthYear)
+                .submit();
+
+        new SubmitFormWindow().assertName(firstName, lastName)
+                .assertMail("")
+                .assertGender(gender)
+                .assertMobileNumber(mobileNumber)
+                .assertBirthdayDate(birthDay, birthMonth, birthYear)
+                .assertSubjects("")
+                .assertHobbies("")
+                .assertPictureFileName("")
+                .assertCurrentAddress("")
+                .assertStateAndCity("");
+    }
+
+    @Test
+    public void fillAllFormFields() {
         String firstName = randomAlphabetic(5),
                 lastName = randomAlphabetic(10),
 

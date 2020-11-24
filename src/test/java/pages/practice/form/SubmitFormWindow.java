@@ -59,4 +59,9 @@ public class SubmitFormWindow {
         verifyRowValue("State and City", "%s %s".formatted(state, city));
         return this;
     }
+
+    public SubmitFormWindow assertStateAndCity(String state) {
+        verifyRowValue("State and City", state);
+        return this;
+    }
 }
