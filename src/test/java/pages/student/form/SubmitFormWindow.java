@@ -1,4 +1,4 @@
-package pages.practice.form;
+package pages.student.form;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
@@ -6,8 +6,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SubmitFormWindow {
 
-    private void verifyRowValue(String key, String value) {
-        $(".modal-content").$(byText(key)).sibling(0).shouldHave(exactText(value));
+    private void verifyRowValue(String label, String value) {
+        $(".modal-content").$(byText(label)).sibling(0).shouldHave(exactText(value));
     }
 
     public SubmitFormWindow assertName(String firstName, String lastName) {

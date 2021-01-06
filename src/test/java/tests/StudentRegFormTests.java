@@ -4,15 +4,15 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pages.practice.form.PracticeFormPage;
-import pages.practice.form.SubmitFormWindow;
+import pages.student.form.StudentRegFormPage;
+import pages.student.form.SubmitFormWindow;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 
-public class PracticeFormTests {
+public class StudentRegFormTests {
 
-    private final PracticeFormPage practiceFormPage = new PracticeFormPage();
+    private final StudentRegFormPage practiceFormPage = new StudentRegFormPage();
 
     @BeforeAll
     public static void setUp() {
@@ -25,7 +25,7 @@ public class PracticeFormTests {
     }
 
     @Test
-    public void fillRequiredFormFields() {
+    public void fillRequiredFields() {
         String firstName = randomAlphabetic(5),
                 lastName = randomAlphabetic(10),
                 gender = "Female",
@@ -56,7 +56,7 @@ public class PracticeFormTests {
     }
 
     @Test
-    public void fillAllFormFields() {
+    public void fillAllFields() {
         String firstName = randomAlphabetic(5),
                 lastName = randomAlphabetic(10),
 
