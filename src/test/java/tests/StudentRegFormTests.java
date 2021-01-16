@@ -19,11 +19,6 @@ public class StudentRegFormTests {
         Configuration.browserSize = "1920x1080";
     }
 
-    @BeforeEach
-    public void openPage() {
-        practiceFormPage.open();
-    }
-
     @Test
     public void fillRequiredFields() {
         String firstName = randomAlphabetic(5),
@@ -36,7 +31,9 @@ public class StudentRegFormTests {
                 birthMonth = "September",
                 birthYear = "1995";
 
-        practiceFormPage.setFirstName(firstName)
+        practiceFormPage
+                .open()
+                .setFirstName(firstName)
                 .setLastName(lastName)
                 .selectGender(gender)
                 .setMobileNumber(mobileNumber)
@@ -80,7 +77,9 @@ public class StudentRegFormTests {
                 state = "NCR",
                 city = "Delhi";
 
-        practiceFormPage.setFirstName(firstName)
+        practiceFormPage
+                .open()
+                .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
                 .selectGender(gender)
